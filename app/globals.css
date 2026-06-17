@@ -1,26 +1,84 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #050505;
+  --background-secondary: #111111;
+  --foreground: #ffffff;
+  --muted-foreground: #e5e5e5;
+  --primary: #d4af37;
+  --primary-soft: #f4e4a3;
+  --border-soft: rgba(212, 175, 55, 0.28);
+  --gold-glow: rgba(212, 175, 55, 0.22);
+  --gold-strong: rgba(244, 228, 163, 0.18);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-display);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), sans-serif;
+  background-image:
+    radial-gradient(circle at top, rgba(212, 175, 55, 0.12), transparent 30%),
+    linear-gradient(180deg, #050505 0%, #080808 35%, #050505 100%);
+}
+
+::selection {
+  background: rgba(212, 175, 55, 0.35);
+  color: #ffffff;
+}
+
+.font-display {
+  font-family: var(--font-display), serif;
+}
+
+.gold-divider {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(212, 175, 55, 0.05) 8%,
+    rgba(212, 175, 55, 0.7) 50%,
+    rgba(212, 175, 55, 0.05) 92%,
+    transparent 100%
+  );
+}
+
+.luxury-panel {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0)),
+    linear-gradient(145deg, rgba(212, 175, 55, 0.05), rgba(17, 17, 17, 0.96));
+  border: 1px solid var(--border-soft);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.02) inset,
+    0 24px 80px rgba(0, 0, 0, 0.4),
+    0 0 40px var(--gold-glow);
+}
+
+.luxury-button {
+  background: linear-gradient(135deg, #f4e4a3 0%, #d4af37 48%, #9e7f19 100%);
+  color: #111111;
+  box-shadow:
+    0 12px 40px rgba(212, 175, 55, 0.22),
+    0 0 24px rgba(244, 228, 163, 0.18);
+}
+
+.luxury-button:hover {
+  box-shadow:
+    0 18px 54px rgba(212, 175, 55, 0.28),
+    0 0 36px rgba(244, 228, 163, 0.24);
+}
+
+.gold-ring {
+  box-shadow:
+    0 0 0 1px rgba(212, 175, 55, 0.24),
+    0 0 0 5px rgba(212, 175, 55, 0.04);
 }
